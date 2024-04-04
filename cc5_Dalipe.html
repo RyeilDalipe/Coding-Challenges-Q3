@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Coding Challenge 5
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: lightseagreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>Modified FLAMES</h1>
+
+    <label for="name1">Enter Name 1:</label>
+    <input type="text" id="name1" placeholder="Name 1">
+    <br><br>
+    <label for="name2">Enter Name 2:</label>
+    <input type="text" id="name2" placeholder="Name 2">
+    <br><br>
+    <button onclick="flames()">Match Names</button>
+
+    <h3 id="name"></h3>
+    <h3 id="result"></h3>
+
+    <script>
+        function flames() {
+            var name1 = document.getElementById("name1").value.toLowerCase().replace(/\s/g, "").replace(/[^a-z]/g, "");
+            var name2 = document.getElementById("name2").value.toLowerCase().replace(/\s/g, "").replace(/[^a-z]/g, "");
+
+            document.getElementById("name").innerHTML = "Names: " + name1 + " and " + name2;
+
+            var totalCharacters = name1.length + name2.length;
+            var flames = "flames";
+            var index = totalCharacters % 6;
+            var result = "";
+
+            switch (flames[index]) {
+                case "f":
+                    result = "Friends";
+                    break;
+                case "l":
+                    result = "Lovers";
+                    break;
+                case "a":
+                    result = "Acquaintances";
+                    break;
+                case "m":
+                    result = "Marriage";
+                    break;
+                case "e":
+                    result = "Enemies";
+                    break;
+                case "s":
+                    result = "Sweethearts";
+                    break;
+                default:
+                    result = "Undefined";
+            }
+
+            document.getElementById("result").innerHTML = "FLAMES Result: " + result;
+        }
+    </script>
+</body>
+</html>
